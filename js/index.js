@@ -15,48 +15,77 @@ Organizzare i singoli membri in card/schede
 
 //creo array di oggetti con tutti i membri del team
 const gruppo = [
+    //membro 1
     {
         nome : 'Wayne',
         cognome : 'Barnett',
         ruolo : 'Founder & CEO',
-        foto : './img/wayne-barnett-founder-ceo.jpg',
+        foto : 'wayne-barnett-founder-ceo.jpg',
     },
-       	           
+    //membro 2   	           
     {
         nome: 'Angela',
         cognome: 'Caroll',
         ruolo: 'Chief Editor',
-        foto: './img/angela-caroll-chief-editor.jpg',
+        foto: 'angela-caroll-chief-editor.jpg',
     },
-       	    	         
+    //membro 3   	    	         
     {
         nome: 'Walter',
         cognome: 'Gordon',
         ruolo: 'Office Manager',
-        foto:'.img/walter-gordon-office-manager.jpg',
+        foto:'walter-gordon-office-manager.jpg',
     },
        	    	  
-    		              
+    //membro 4		              
   	    	      
     {
         nome: 'Angela',
         cognome: 'Lopez',
         ruolo: 'Social Media Manager',
-        foto: '.img/angela-lopez-social-media-manager.jpg',
+        foto: 'angela-lopez-social-media-manager.jpg',
     },
-
+    
+     //membro 5
     {
         nome: 'Scott',
         cognome: 'Estrada',
         ruolo: 'Developer',
-        foto :'.img/scott-estrada-developer.jpg',
+        foto :'scott-estrada-developer.jpg',
     },
 
+     //membro 6
     {
         nome: 'Barbara',
         cognome: 'Ramos',
         ruolo: 'Graphic Designer',
-        foto : '.img/barbara-ramos-graphic-designer.jpg',
+        foto : 'barbara-ramos-graphic-designer.jpg',
     },
 
 ];
+
+ //creiamo una costante per prendere la row
+const row = document.querySelector('.row');
+let cards = '';
+ //ciclo per creare delle card per ogni oggetto nell'array e i loro rispettivi valori
+for (let i = 0; i < gruppo.length; i++) {
+      const membro = gruppo[i];
+       //constante card con il contenuto da creare e inserire 
+      const card = `
+      <div class="col-4">
+          <div class="card mt-3">
+                <div class="card-head">
+                        <img class="card-img-top" src="img/${membro.foto}" alt"${membro.nome} ${membro.cognome}">
+                </div>
+              <div class="card-body">
+                   <div class="text-center fs-2 mb-2"><span>${membro.nome}</span><span class="ms-2">${membro.cognome}</span></div>
+                   <div class="text-center">${membro.ruolo}</div>
+              </div>
+          </div>
+      </div>
+      `
+     //do il valore di card alla variabile cards
+     cards += card;
+}
+ //inserisco tutte le card nella row
+row.innerHTML += cards;
